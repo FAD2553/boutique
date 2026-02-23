@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2FA Market — Votre Épicerie en Ligne au Burkina Faso</title>
+  <meta name="description" content="2FA Market, votre boutique d'alimentation à Ouagadougou. Commandez vos produits frais, céréales, boissons et produits locaux burkinabè directement par WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== OVERLAY PANIER ===== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+
+  <!-- ===== BOTTOM NAV (Mobile Only) ===== -->
+  <div class="bottom-nav">
+    <a href="#accueil" class="bottom-nav-link active" data-target="accueil">
+      <i class="fas fa-home"></i>
+      <span>Accueil</span>
+    </a>
+    <a href="#produits" class="bottom-nav-link" data-target="produits">
+      <i class="fas fa-grid-2"></i>
+      <span>Produits</span>
+    </a>
+    <a href="javascript:void(0)" class="bottom-nav-link" id="bottomCartBtn">
+      <div class="cart-icon-wrapper">
+        <i class="fas fa-shopping-basket"></i>
+        <span class="cart-badge-mobile" id="cartBadgeMobile">0</span>
+      </div>
+      <span>Panier</span>
+    </a>
+    <a href="#contact" class="bottom-nav-link" data-target="contact">
+      <i class="fas fa-phone"></i>
+      <span>Contact</span>
+    </a>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container section-container">
+      <a href="#accueil" class="logo-text">
+        <h1 class="logo-main">2FA <span style="color:var(--secondary)">Market</span></h1>
+        <p class="logo-sub">Votre boutique professionnelle</p>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav-links" id="navLinks">
+        <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#produits" class="nav-link">Produits</a>
+        <a href="#apropos" class="nav-link">À propos</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Panier">
+          <i class="fas fa-shopping-basket"></i>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        
+        <!-- Hamburger Button -->
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+  <main>
+
+  <!-- Mobile Menu Drawer (Overlay) -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <h2 class="logo-main">Menu</h2>
+      <button class="close-drawer" id="closeDrawer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="#accueil" class="drawer-link">Accueil</a>
+      <a href="#produits" class="drawer-link">Produits</a>
+      <a href="#apropos" class="drawer-link">À propos</a>
+      <a href="#contact" class="drawer-link">Contact</a>
+    </div>
+    <div class="drawer-footer">
+      <p>Suivez-nous</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="accueil">
+    <div class="hero-bg">
+      <!-- METTEZ VOTRE IMAGE HERO ICI : images/hero.png -->
+      <img src="images/hero.png" alt="Boutique 2FA Market - style africain" class="hero-img" id="heroImg" onerror="document.getElementById('heroImg').style.display='none'" />
+      <div class="hero-overlay"></div>
+      <!-- pattern décoratif rgba pour motif traditionnel -->
+      <div class="hero-pattern"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-leaf"></i> Produits Frais &amp; Locaux
+      </div>
+      <h1 class="hero-title">
+        Votre Boutique <br />
+        <span class="hero-highlight">Burkinabè sans crédits</span><br />
+        À Portée de Main
+      </h1>
+      <p class="hero-desc">
+        Des produits frais, locaux et importés sélectionnés avec soin.<br />
+        Commandez et faites livrer directement chez vous à Ouagadougou.
+      </p>
+      <div class="hero-cta">
+        <a href="#produits" class="btn btn-primary">
+          <i class="fas fa-store"></i> Voir nos produits
+        </a>
+        <a href="https://wa.me/22607142862" target="_blank" class="btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> Nous contacter
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">200+</span>
+          <span class="stat-label">Produits</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">24h</span>
+          <span class="stat-label">Livraison</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Qualité</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ===== BANDEAU AVANTAGES ===== -->
+
+  <section class="features-band">
+    <div class="section-container features-container">
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-truck"></i></div>
+        <div class="feature-text">
+          <h4>Livraison Rapide</h4>
+          <p>Ouagadougou &amp; environs</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+        <div class="feature-text">
+          <h4>Produits Certifiés</h4>
+          <p>Frais &amp; de qualité</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="feature-text">
+          <h4>Commande WhatsApp</h4>
+          <p>Simple &amp; rapide</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-tags"></i></div>
+        <div class="feature-text">
+          <h4>Prix Compétitifs</h4>
+          <p>Meilleurs tarifs en FCFA</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATÉGORIES ===== -->
+  <section class="categories-section" id="categories">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-eyebrow">Parcourir par</span>
+        <h2 class="section-title">Nos Catégories</h2>
+        <p class="section-subtitle">Trouvez rapidement ce dont vous avez besoin</p>
+      </div>
+      <div class="categories-grid scroll-x">
+        <!-- Catégorie Tout -->
+        <button class="cat-card active" data-cat="tous" id="cat-tous">
+          <div class="cat-icon-wrap">
+            <i class="fas fa-border-all"></i>
+          </div>
+          <span class="cat-name">Tous</span>
+        </button>
+        <!-- Catégorie Épicerie -->
+        <button class="cat-card" data-cat="epicerie" id="cat-epicerie">
+          <div class="cat-img-wrap">
+            <!-- images/categories/epicerie.jpg -->
+            <img src="images/categories/epicerie.jpg" alt="Épicerie" onerror="this.parentElement.innerHTML='<i class=\'fas fa-shopping-basket\'></i>'" />
+          </div>
+          <span class="cat-name">Épicerie</span>
+        </button>
+        <!-- Catégorie Céréales -->
+        <button class="cat-card" data-cat="cereales" id="cat-cereales">
+          <div class="cat-img-wrap">
+            <!-- images/categories/cereales.jpg -->
+            <img src="images/categories/cereales.jpg" alt="Céréales" onerror="this.parentElement.innerHTML='<i class=\'fas fa-seedling\'></i>'" />
+          </div>
+          <span class="cat-name">Céréales</span>
+        </button>
+        <!-- Catégorie Boissons -->
+        <button class="cat-card" data-cat="boissons" id="cat-boissons">
+          <div class="cat-img-wrap">
+            <!-- images/categories/boissons.jpg -->
+            <img src="images/categories/boissons.jpg" alt="Boissons" onerror="this.parentElement.innerHTML='<i class=\'fas fa-glass-water\'></i>'" />
+          </div>
+          <span class="cat-name">Boissons</span>
+        </button>
+        <!-- Catégorie Produits Locaux -->
+        <button class="cat-card" data-cat="local" id="cat-local">
+          <div class="cat-img-wrap">
+            <!-- images/categories/local.jpg -->
+            <img src="images/categories/local.jpg" alt="Produits Locaux" onerror="this.parentElement.innerHTML='<i class=\'fas fa-leaf\'></i>'" />
+          </div>
+          <span class="cat-name">Produits Locaux</span>
+        </button>
+        <!-- Catégorie Hygiène -->
+        <button class="cat-card" data-cat="hygiene" id="cat-hygiene">
+          <div class="cat-img-wrap">
+            <!-- images/categories/hygiene.jpg -->
+            <img src="images/categories/hygiene.jpg" alt="Hygiène" onerror="this.parentElement.innerHTML='<i class=\'fas fa-pump-soap\'></i>'" />
+          </div>
+          <span class="cat-name">Hygiène</span>
+        </button>
+        <!-- Catégorie Surgelés -->
+        <button class="cat-card" data-cat="surgeles" id="cat-surgeles">
+          <div class="cat-img-wrap">
+            <!-- images/categories/surgeles.jpg -->
+            <img src="images/categories/surgeles.jpg" alt="Surgelés" onerror="this.parentElement.innerHTML='<i class=\'fas fa-snowflake\'></i>'" />
+          </div>
+          <span class="cat-name">Surgelés</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CATALOGUE PRODUITS ===== -->
+  <section class="products-section" id="produits">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-eyebrow">Notre sélection</span>
+        <h2 class="section-title">Nos Produits</h2>
+        <p class="section-subtitle">Des produits frais, locaux et importés pour toute votre famille</p>
+      </div>
+      <div class="products-toolbar">
+        <div class="search-wrap">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un produit..." />
+        </div>
+        <div class="sort-wrap">
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Trier par</option>
+            <option value="prix-asc">Prix croissant</option>
+            <option value="prix-desc">Prix décroissant</option>
+            <option value="nom">Nom A-Z</option>
+          </select>
+        </div>
+      </div>
+      <!-- Grille produits (générée dynamiquement) -->
+      <div class="products-grid" id="productsGrid"></div>
+      
+      <!-- Pagination Controls -->
+      <div class="pagination-container hidden" id="paginationContainer">
+        <button class="page-btn" id="prevPageBtn"><i class="fas fa-chevron-left"></i></button>
+        <div class="page-numbers" id="pageNumbers"></div>
+        <button class="page-btn" id="nextPageBtn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div class="no-results hidden" id="noResults">
+        <i class="fas fa-search"></i>
+        <p>Aucun produit trouvé pour cette recherche.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECTION PROMO ===== -->
+  <section class="promo-section">
+    <div class="section-container">
+      <div class="promo-inner">
+        <div class="promo-text">
+          <span class="section-eyebrow" style="color: var(--secondary)">Offre spéciale</span>
+          <h2>Commandez via WhatsApp !</h2>
+          <p>Recevez votre facture instantanément et profitez de nos produits frais du jour.</p>
+        </div>
+        <a href="https://wa.me/22607142862" target="_blank" class="btn btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp Direct
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== À PROPOS ===== -->
+  <section class="about-section" id="apropos">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-img-col">
+          <div class="about-img-wrap">
+            <!-- images/about.jpg -->
+            <img src="images/image.png" alt="Notre boutique" class="about-img" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="about-img-badge">
+              <i class="fas fa-award"></i>
+              <span>Qualité<br/><strong>Garantie</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content">
+          <span class="section-eyebrow">Qui sommes-nous ?</span>
+          <h2 class="section-title">2FA Market<br/>Votre partenaire alimentaire</h2>
+          <p>2FA Market est une boutique d'alimentation générale basée à Ouagadougou, au cœur du Burkina Faso. Nous proposons une large gamme de produits alimentaires de qualité : céréales locales, épicerie fine, boissons, produits d'hygiène et bien plus.</p>
+          <p>Notre mission : rendre l'accès aux produits frais et authentiques facile, rapide et abordable pour les familles burkinabè. Commandez confortablement depuis chez vous et recevez votre commande à domicile.</p>
+          <div class="about-values">
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-leaf"></i></div>
+              <div>
+                <h4>Produits Locaux</h4>
+                <p>Nous valorisons les filières burkinabè</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+              <div>
+                <h4>Service Client</h4>
+                <p>Disponible 7j/7 sur WhatsApp</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon"><i class="fas fa-truck-fast"></i></div>
+              <div>
+                <h4>Livraison Express</h4>
+                <p>Ouagadougou &amp; alentours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="section-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2 class="logo-main">2FA <span style="color:var(--secondary)">Market</span></h2>
+          <p>Votre partenaire fraîcheur au Burkina Faso. Des produits locaux sélectionnés pour leur qualité exceptionnelle.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#apropos">À propos</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Catégories</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('epicerie')">Épicerie</a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('local')">Locaux</a></li>
+            <li><a href="javascript:void(0)" onclick="filterByCategory('boissons')">Boissons</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Ouagadougou, BF</li>
+            <li><i class="fab fa-whatsapp"></i> +226 07 14 28 62</li>
+            <li><i class="fas fa-clock"></i> 7j/7 : 7h - 21h</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 2FA Market. Design by 2FA &copy; Burkina Faso.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== PANIER DRAWER ===== -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3><i class="fas fa-shopping-basket"></i> Mon Panier</h3>
+      <button class="cart-close" id="cartClose" aria-label="Fermer le panier">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fas fa-shopping-basket"></i>
+        <p>Votre panier est vide</p>
+        <span>Ajoutez des produits pour commencer</span>
+      </div>
+      <div class="cart-items-list" id="cartItemsList"></div>
+    </div>
+    <div class="cart-footer" id="cartFooterEl">
+
+      
+      <div class="cart-total-row">
+        <span>Sous-total</span>
+        <span id="cartSubtotal">0 FCFA</span>
+      </div>
+      <div class="cart-total-row total-main">
+        <span>Total</span>
+        <span id="cartTotal">0 FCFA</span>
+      </div>
+      <div class="cart-note">
+        <i class="fas fa-info-circle"></i>
+        <span>Les frais de livraison seront confirmés par WhatsApp</span>
+      </div>
+      <button class="btn-order-whatsapp" id="openCheckoutBtn" onclick="openCheckoutModal()">
+        <i class="fas fa-check-circle"></i>
+        Valider la commande
+      </button>
+      <button class="btn-clear-cart" onclick="viderPanier()">
+        <i class="fas fa-trash"></i> Vider le panier
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== CHECKOUT MODAL ===== -->
+  <div class="modal-overlay" id="checkoutModalOverlay"></div>
+  <div class="checkout-modal" id="checkoutModal">
+    <div class="modal-header">
+      <h3><i class="fas fa-truck-fast"></i> Infos Livraison</h3>
+      <button class="modal-close" onclick="closeCheckoutModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body delivery-form">
+      <div class="form-group">
+        <label for="clientName">Nom complet</label>
+        <input type="text" id="clientName" placeholder="Ex: Moussa Ouédraogo" required />
+      </div>
+      <div class="form-group">
+        <label for="clientNeighborhood">Quartier (Ouagadougou)</label>
+        <input type="text" id="clientNeighborhood" placeholder="Ex: Patte d'Oie, Somgandé..." required />
+      </div>
+      <div class="form-group">
+        <label for="clientPhone">Téléphone</label>
+        <input type="tel" id="clientPhone" placeholder="Ex: 07 14 28 62" required />
+      </div>
+      <button class="btn-order-whatsapp" id="orderBtn" onclick="passerCommande()" style="margin-top: 1.5rem;">
+        <i class="fab fa-whatsapp"></i>
+        Commander par WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATIONS ===== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ===== BOUTON RETOUR EN HAUT ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
