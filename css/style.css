@@ -283,7 +283,7 @@ header .navbar {
 
 /* ── HERO ── */
 .hero {
-  height: 90vh;
+  min-height: 100vh;
   position: relative;
   display: flex; align-items: center;
   justify-content: center;
@@ -301,11 +301,11 @@ header .navbar {
 .hero-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.5; mix-blend-mode: overlay; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(36,25,20,0.85) 0%, rgba(36,25,20,0.4) 60%, rgba(36,25,20,0.9) 100%); }
 
-.hero-content { position: relative; z-index: 1; max-width: 800px; padding: 0 1rem; }
-.hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 20px; background: rgba(253,251,247,0.1); backdrop-filter: blur(5px); border: 1px solid rgba(253,251,247,0.2); border-radius: 50px; font-size: 0.8rem; font-weight: 700; margin-bottom: 1.5rem; text-transform: uppercase; color: var(--secondary); letter-spacing: 1px; }
-.hero-title { font-size: clamp(3rem, 9vw, 5.5rem); margin-bottom: 1.5rem; line-height: 1.1; color: var(--white); text-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-.hero-highlight { color: var(--secondary); }
-.hero-desc { font-size: 1.15rem; opacity: 0.9; margin-bottom: 2.5rem; line-height: 1.8; max-width: 600px; margin-left: auto; margin-right: auto; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+.hero-content { position: relative; z-index: 1; max-width: 900px; padding: 0 1rem; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 20px; background: rgba(253,251,247,0.1); backdrop-filter: blur(5px); border: 1px solid rgba(253,251,247,0.2); border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 2rem; text-transform: uppercase; color: var(--secondary); letter-spacing: 2px; }
+.hero-title { font-size: clamp(3.2rem, 9vw, 6rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1; color: var(--white); text-transform: uppercase; letter-spacing: -1px; text-shadow: 2px 4px 25px rgba(0,0,0,0.6); }
+.hero-highlight { color: var(--secondary); display: inline-block; background: rgba(0, 0, 0, 0.25); padding: 0 15px; border-radius: 12px; backdrop-filter: blur(5px); }
+.hero-desc { font-size: 1.25rem; font-weight: 500; opacity: 1; margin-bottom: 2.5rem; line-height: 1.8; max-width: 700px; margin-left: auto; margin-right: auto; color: #F8F9FA; text-shadow: 1px 2px 10px rgba(0,0,0,0.7); }
 .hero-cta { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
 
 /* ── FEATURES BAND ── */
@@ -584,18 +584,31 @@ header .navbar {
 .cart-empty p { font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif; }
 
 /* items list */
-.cart-item {
-  display: flex; gap: 1.5rem; padding: 1.5rem 0;
-  border-bottom: 1px solid var(--gray); align-items: center;
+.cart-items-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-bottom: 1rem;
 }
-.cart-item:last-child { border-bottom: none; }
 
-.cart-item-img { width: 80px; height: 80px; border-radius: var(--radius-sm); overflow: hidden; background: var(--gray); border: 1px solid rgba(178,74,36,0.1); }
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-sm);
+  align-items: center;
+  text-align: center;
+  background: var(--white);
+}
+
+.cart-item-img { width: 100%; height: 100px; border-radius: var(--radius-sm); overflow: hidden; background: var(--gray); border: 1px solid rgba(178,74,36,0.1); }
 .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
-.cart-item-info { flex: 1; }
-.cart-item-name { font-size: 1.05rem; margin-bottom: 4px; font-weight: 600; font-family: 'Outfit', sans-serif; color: var(--dark); }
-.cart-item-price { font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: 'Outfit', sans-serif; }
-.cart-item-controls { display: flex; align-items: center; gap: 0.8rem; }
+.cart-item-info { flex: 1; display: flex; flex-direction: column; align-items: center; width: 100%; }
+.cart-item-name { font-size: 0.95rem; margin-bottom: 4px; font-weight: 600; font-family: 'Outfit', sans-serif; color: var(--dark); }
+.cart-item-price { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; font-family: 'Outfit', sans-serif; }
+.cart-item-controls { display: flex; align-items: center; justify-content: center; gap: 0.8rem; width: 100%; }
 
 .qty-btn { width: 32px; height: 32px; border: 1px solid var(--gray); background: var(--white); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--primary); transition: var(--transition); }
 .qty-btn:hover { background: var(--primary); color: var(--white); border-color: var(--primary); }

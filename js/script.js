@@ -95,6 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProduits();
     });
 
+    // Tri
+    const sortSelect = document.getElementById('sortSelect');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', () => {
+            currentPage = 1; // Reset to page 1 on sort change
+            renderProduits();
+        });
+    }
+
     // Menu Mobile (Desktop mode legacy or side menu)
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileDrawer = document.getElementById('mobileDrawer');
@@ -146,6 +155,19 @@ function renderProduits() {
         const matchesSearch = p.nom.toLowerCase().includes(rechercheActive);
         return matchesCat && matchesSearch;
     });
+
+    // Tri des produits
+    const sortSelect = document.getElementById('sortSelect');
+    if (sortSelect) {
+        const sortValue = sortSelect.value;
+        if (sortValue === 'prix-asc') {
+            filtres.sort((a, b) => a.prix - b.prix);
+        } else if (sortValue === 'prix-desc') {
+            filtres.sort((a, b) => b.prix - a.prix);
+        } else if (sortValue === 'nom') {
+            filtres.sort((a, b) => a.nom.localeCompare(b.nom));
+        }
+    }
 
     const paginationContainer = document.getElementById('paginationContainer');
     const noResults = document.getElementById('noResults');
@@ -424,6 +446,7 @@ function passerCommande() {
 
     const nom = document.getElementById('clientName').value.trim();
     const quartier = document.getElementById('clientNeighborhood').value.trim();
+    const portail = document.getElementById('clientPortal') ? document.getElementById('clientPortal').value.trim() : '';
     const tel = document.getElementById('clientPhone').value.trim();
 
     if (!nom || !quartier || !tel) {
@@ -435,6 +458,9 @@ function passerCommande() {
     message += "---------------------------\n";
     message += `👤 *CLIENT :* ${nom}\n`;
     message += `📍 *QUARTIER :* ${quartier}\n`;
+    if (portail) {
+        message += `🚪 *PORTAIL :* ${portail}\n`;
+    }
     message += `📞 *TEL :* ${tel}\n`;
     message += "---------------------------\n";
     
