@@ -1,5 +1,5 @@
 /* ============================================================
-   2FA MARKET — Logique Interactivité
+   ALIMENTATION DANILICE — Logique Interactivité
    Panier | Filtres | WhatsApp | Animations
    ============================================================ */
 
@@ -454,7 +454,7 @@ function passerCommande() {
         return;
     }
 
-    let message = "🛒 *2FA MARKET*\n";
+    let message = "🛒 *ALIMENTATION DANILICE*\n";
     message += "---------------------------\n";
     message += `👤 *CLIENT :* ${nom}\n`;
     message += `📍 *QUARTIER :* ${quartier}\n`;
